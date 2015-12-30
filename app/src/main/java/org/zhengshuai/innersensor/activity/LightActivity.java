@@ -74,10 +74,9 @@ public class LightActivity extends Activity implements SensorEventListener {
         String phoneName = Build.MODEL;
         String sendTime = Utils.getCurrentTimeFormat("dd-MM-yyyy hh:mm:ss");
         String sensorName = "Light";
-        String origin = "origin";
 
         // define url
-        String url = "http://10.31.20.97:8080/index.jsp";
+        String url = "http://innersensorserver-zhengshuai.rhcloud.com/InnerSensorRestServer/webapi/server/light";
 
         // create async http client
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
@@ -87,14 +86,13 @@ public class LightActivity extends Activity implements SensorEventListener {
 
         // sent data
         RequestParams requestParams = new RequestParams();
-        requestParams.add("Sensor", String.valueOf(sensorName));
-        requestParams.add("PhoneName", String.valueOf(phoneName));
-        requestParams.add("Origin", String.valueOf(origin));
-        requestParams.add("SendTime", String.valueOf(sendTime));
-        requestParams.add("LightValue", String.valueOf(x));
+        requestParams.put("Sensor", String.valueOf(sensorName));
+        requestParams.put("PhoneName", String.valueOf(phoneName));
+        requestParams.put("SendTime", String.valueOf(sendTime));
+        requestParams.put("LightValue", String.valueOf(x));
 
         //post
-        asyncHttpClient.post(url, requestParams, myResponseHandler);
+        asyncHttpClient.get(url, requestParams, myResponseHandler);
     }
 
     @Override

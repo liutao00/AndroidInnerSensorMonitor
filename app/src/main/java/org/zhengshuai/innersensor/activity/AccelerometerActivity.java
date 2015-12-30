@@ -119,10 +119,10 @@ public class AccelerometerActivity extends Activity implements SensorEventListen
         String phoneName = Build.MODEL;
         String sendTime = Utils.getCurrentTimeFormat("dd-MM-yyyy hh:mm:ss");
         String sensorName = "Accelerometer";
-        String origin = "origin";
+
 
         // define url
-        String url = "http://10.31.20.97:8080/server";
+        String url = "http://innersensorserver-zhengshuai.rhcloud.com/InnerSensorRestServer/webapi/server/accelerometer";
 
         // create async http client
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
@@ -132,15 +132,14 @@ public class AccelerometerActivity extends Activity implements SensorEventListen
 
         // sent data
         RequestParams requestParams = new RequestParams();
-        requestParams.add("Sensor", String.valueOf(sensorName));
-        requestParams.add("PhoneName", String.valueOf(phoneName));
-        requestParams.add("SendTime", String.valueOf(sendTime));
-        requestParams.add("Origin", String.valueOf(origin));
-        requestParams.add("xValue", String.valueOf(x));
-        requestParams.add("yValue", String.valueOf(y));
-        requestParams.add("zValue", String.valueOf(z));
+        requestParams.put("Sensor", String.valueOf(sensorName));
+        requestParams.put("PhoneName", String.valueOf(phoneName));
+        requestParams.put("SendTime", String.valueOf(sendTime));
+        requestParams.put("xValue", String.valueOf(x));
+        requestParams.put("yValue", String.valueOf(y));
+        requestParams.put("zValue", String.valueOf(z));
 
-        asyncHttpClient.post(url, requestParams, myResponseHandler);
+        asyncHttpClient.get(url, requestParams, myResponseHandler);
 
     }
 
