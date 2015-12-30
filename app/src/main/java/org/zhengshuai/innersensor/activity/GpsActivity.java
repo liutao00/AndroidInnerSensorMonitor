@@ -101,6 +101,9 @@ public class GpsActivity extends Activity implements LocationListener {
         String sendTime = Utils.getCurrentTimeFormat("dd-MM-yyyy hh:mm:ss");
         String sensorName = "Gps";
 
+        // encryption
+        String origin = "ISEPMobileProject";
+
         // define url
         String url = "http://innersensorserver-zhengshuai.rhcloud.com/InnerSensorRestServer/webapi/server/gps";
 
@@ -117,6 +120,7 @@ public class GpsActivity extends Activity implements LocationListener {
         requestParams.put("SendTime", String.valueOf(sendTime));
         requestParams.put("Latitude", String.valueOf(x));
         requestParams.put("Longitude", String.valueOf(y));
+        requestParams.put("Origin", String.valueOf(origin));
 
         asyncHttpClient.get(url, requestParams, myResponseHandler);
 

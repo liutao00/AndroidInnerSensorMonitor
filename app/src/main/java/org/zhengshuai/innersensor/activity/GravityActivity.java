@@ -73,6 +73,9 @@ public class GravityActivity extends Activity implements SensorEventListener {
         String sendTime = Utils.getCurrentTimeFormat("dd-MM-yyyy hh:mm:ss");
         String sensorName = "Gravity";
 
+        // encryption
+        String origin = "ISEPMobileProject";
+
 
         // define url
         String url = "http://innersensorserver-zhengshuai.rhcloud.com/InnerSensorRestServer/webapi/server/gravity";
@@ -89,6 +92,7 @@ public class GravityActivity extends Activity implements SensorEventListener {
         requestParams.put("PhoneName", String.valueOf(phoneName));
         requestParams.put("SendTime", String.valueOf(sendTime));;
         requestParams.put("GravityValue", String.valueOf(x));
+        requestParams.put("Origin", String.valueOf(origin));
 
         //post
         asyncHttpClient.get(url, requestParams, myResponseHandler);

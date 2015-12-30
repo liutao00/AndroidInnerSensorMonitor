@@ -120,6 +120,9 @@ public class AccelerometerActivity extends Activity implements SensorEventListen
         String sendTime = Utils.getCurrentTimeFormat("dd-MM-yyyy hh:mm:ss");
         String sensorName = "Accelerometer";
 
+        // encryption
+        String origin = "ISEPMobileProject";
+
 
         // define url
         String url = "http://innersensorserver-zhengshuai.rhcloud.com/InnerSensorRestServer/webapi/server/accelerometer";
@@ -138,6 +141,7 @@ public class AccelerometerActivity extends Activity implements SensorEventListen
         requestParams.put("xValue", String.valueOf(x));
         requestParams.put("yValue", String.valueOf(y));
         requestParams.put("zValue", String.valueOf(z));
+        requestParams.put("Origin", String.valueOf(origin));
 
         asyncHttpClient.get(url, requestParams, myResponseHandler);
 
