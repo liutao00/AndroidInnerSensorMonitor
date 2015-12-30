@@ -54,8 +54,6 @@ import java.util.List;
  */
 public class AccelerometerActivity extends Activity implements SensorEventListener {
 
-    private final Handler mHandler = new Handler();
-    private Runnable mTimer;
 
     private Sensor accelerometer;
     private SensorManager sensorManager;
@@ -68,7 +66,6 @@ public class AccelerometerActivity extends Activity implements SensorEventListen
     private Point yPoint;
     private Point zPoint;
 
-    private Thread thread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

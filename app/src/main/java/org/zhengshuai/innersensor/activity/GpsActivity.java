@@ -42,7 +42,6 @@ public class GpsActivity extends Activity implements LocationListener {
     private Point latitudePoint;
     private Point longitudePoint;
 
-    private Thread thread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +81,6 @@ public class GpsActivity extends Activity implements LocationListener {
         gpsTextView.setText("Location changed: Lat: " + loc.getLatitude() + " Lng: "
                 + loc.getLongitude());
 
-        String longitude = "Longitude: " + loc.getLongitude();
-        String latitude = "Latitude: " + loc.getLatitude();
 
         final double y = loc.getLongitude();
         final double x = loc.getLatitude();
