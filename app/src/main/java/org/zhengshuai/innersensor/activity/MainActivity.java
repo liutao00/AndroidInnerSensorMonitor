@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button lightBtn;
     private Button gpsBtn;
     private Button temperatureBtn;
+    private Button pressureBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         lightBtn = (Button) findViewById(R.id.btn_light);
         gpsBtn = (Button) findViewById(R.id.btn_gps);
         temperatureBtn = (Button) findViewById(R.id.btn_temp);
+        pressureBtn = (Button)findViewById(R.id.btn_pressure);
     }
 
     public void gravityHandler(View view){
@@ -56,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void temperatureHandler(View view){
         Intent myIntent = new Intent(MainActivity.this, TemperatureActivity.class);
+        MainActivity.this.startActivity(myIntent);
+    }
+
+    public void pressureHandler(View view){
+        Intent myIntent = new Intent(MainActivity.this, PressureActivity.class);
         MainActivity.this.startActivity(myIntent);
     }
 }

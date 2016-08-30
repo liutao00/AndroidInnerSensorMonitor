@@ -67,4 +67,13 @@
         android:text="Temperature"
         android:onClick="temperatureHandler"
         />
+    <Button
+        android:id="@+id/btn_pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_gps"
+        android:layout_alignLeft="@id/btn_gps"
+        android:text="Pressure"
+        android:onClick="pressureHandler"
+        />
 </RelativeLayout>
